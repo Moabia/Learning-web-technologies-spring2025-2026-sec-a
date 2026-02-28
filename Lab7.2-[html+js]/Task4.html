@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task4</title>
+
+    <script>
+        function validateDOB() {
+            let d = document.getElementById("dd").value.trim();
+            let m = document.getElementById("mm").value.trim();
+            let y = document.getElementById("yyyy").value.trim();
+
+            if (d === "" || m === "" || y === "") {
+                alert("All fields are required");
+                return false;
+            }
+
+            if (isNaN(d) || isNaN(m) || isNaN(y)) {
+                alert("Must be valid numbers");
+                return false;
+            }
+
+            d = parseInt(d);
+            m = parseInt(m);
+            y = parseInt(y);
+
+            if (d < 1 || d > 31) {
+                alert("Day must be 1-31");
+                return false;
+            }
+
+            if (m < 1 || m > 12) {
+                alert("Month must be 1-12");
+                return false;
+            }
+
+            if (y < 1900 || y > 2016) {
+                alert("Year must be 1900-2016");
+                return false;
+            }
+
+            alert("Valid Date");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<form onsubmit="return validateDOB()">
+    <fieldset style="width:80px;">
+        <legend>Date of Birth</legend>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;dd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yyyy
+        <br>
+
+        <input type="text" id="dd" size="1"> /
+        <input type="text" id="mm" size="1"> /
+        <input type="text" id="yyyy" size="2">
+
+        <hr>
+
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+</body>
+</html>

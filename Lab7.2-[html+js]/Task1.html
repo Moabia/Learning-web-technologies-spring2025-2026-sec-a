@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task1</title>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementsByName("name")[0].value.trim();
+
+            if (name === "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+
+            let words = name.split(" ");
+            if (words.length < 2) {
+                alert("Name must contain at least two words");
+                return false;
+            }
+
+            let pattern = /^[A-Za-z][A-Za-z.\- ]*$/;
+
+            if (!pattern.test(name)) {
+                alert("Invalid name format");
+                return false;
+            }
+
+            alert("Valid Name");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="return validateForm()">
+        <label>Name:</label><br>
+        <input type="text" name="name"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

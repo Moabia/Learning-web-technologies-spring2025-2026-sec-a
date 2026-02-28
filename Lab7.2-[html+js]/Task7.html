@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task7</title>
+
+    <script>
+        function validateForm() {
+            let id = document.getElementById("uid").value.trim();
+            let pic = document.getElementById("pic").value;
+
+            if (id === "") {
+                alert("User ID cannot be empty");
+                return false;
+            }
+
+            if (isNaN(id) || parseInt(id) <= 0) {
+                alert("User ID must be a positive number");
+                return false;
+            }
+
+            if (pic === "") {
+                alert("Please select a picture");
+                return false;
+            }
+
+            alert("Submitted");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+    <fieldset style="width:320px;">
+        <legend>Profile Picture</legend>
+    
+        <label>User ID</label>
+        <input type="text" id="uid"><br><br>
+
+        <label>Picture</label>
+        <input type="file" id="pic">
+        <br>
+        <hr>
+
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+</body>
+</html>

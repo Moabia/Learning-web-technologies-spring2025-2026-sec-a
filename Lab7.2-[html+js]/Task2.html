@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task2</title>
+
+    <script>
+        function validateEmail() {
+            let email = document.getElementById("mail").value.trim();
+
+            if (email === "") {
+                alert("Email cannot be empty");
+                return false;
+            }
+
+            let pattern = /^[A-Za-z]+@[A-Za-z]+\.com$/
+            if (!pattern.test(email)) {
+                alert("Enter a valid email (example: sample@example.com)");
+                return false;
+            }
+
+            alert("Valid Email");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="return validateEmail()">
+        <label for="mail">Email</label><br>
+        <input type="text" id="mail">
+        <span title="hint: sample@example.com">ℹ️</span><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

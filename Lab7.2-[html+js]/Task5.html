@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task5</title>
+
+    <script>
+        function validateDegree() {
+            let deg = document.getElementsByName("degree");
+            let selected = false;
+
+            for (let i = 0; i < deg.length; i++) {
+                if (deg[i].checked) {
+                    selected = true;
+                    break;
+                }
+            }
+
+            if (!selected) {
+                alert("Please select at least one degree");
+                return false;
+            }
+
+            alert("Submitted");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+<form onsubmit="return validateDegree()">
+    <fieldset style="width: 220px;">
+        <legend>Degree</legend>
+
+        <input type="checkbox" name="degree"> SSC
+        <input type="checkbox" name="degree"> HSC
+        <input type="checkbox" name="degree"> BSc
+    </fieldset>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

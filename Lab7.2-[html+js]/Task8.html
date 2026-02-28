@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task8</title>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let gender = document.getElementsByName("g");
+            let dd = document.getElementById("dd").value.trim();
+            let mm = document.getElementById("mm").value.trim();
+            let yyyy = document.getElementById("yyyy").value.trim();
+            let blood = document.getElementById("blood").value;
+            let degree = document.getElementsByName("degree");
+            let photo = document.getElementById("photo").value;
+
+            if (name === "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+
+            if (name.split(" ").length < 2) {
+                alert("Name must contain at least two words");
+                return false;
+            }
+
+            let namePattern = /^[A-Za-z][A-Za-z.\- ]*$/;
+            if (!namePattern.test(name)) {
+                alert("Invalid name format");
+                return false;
+            }
+
+            if (email === "") {
+                alert("Email cannot be empty");
+                return false;
+            }
+
+            let emailPattern = /^[A-Za-z0-9]+@[A-Za-z0-9]+\.com$/;
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email (example: sample@example.com)");
+                return false;
+            }
+
+            let gSelected = false;
+            for (let i = 0; i < gender.length; i++) {
+                if (gender[i].checked) {
+                    gSelected = true;
+                    break;
+                }
+            }
+
+            if (!gSelected) {
+                alert("Please select a gender");
+                return false;
+            }
+
+            if (dd === "" || mm === "" || yyyy === "") {
+                alert("All fields are required");
+                return false;
+            }
+
+            if (isNaN(dd) || isNaN(mm) || isNaN(yyyy)) {
+                alert("Must be valid numbers");
+                return false;
+            }
+
+            dd = parseInt(dd);
+            mm = parseInt(mm);
+            yyyy = parseInt(yyyy);
+
+            if (dd < 1 || dd > 31) {
+                alert("Day must be 1-31");
+                return false;
+            }
+
+            if (mm < 1 || mm > 12) {
+                alert("Month must be 1-12");
+                return false;
+            }
+
+            if (yyyy < 1900 || yyyy > 2016) {
+                alert("Year must be 1900-2016");
+                return false;
+            }
+
+            if (blood === "") {
+                alert("Please select a blood group");
+                return false;
+            }
+
+            let dSelected = false;
+            for (let i = 0; i < degree.length; i++) {
+                if (degree[i].checked) {
+                    dSelected = true;
+                    break;
+                }
+            }
+
+            if (!dSelected) {
+                alert("Please select at least one degree");
+                return false;
+            }
+
+            if (photo === "") {
+                alert("Please select a picture");
+                return false;
+            }
+
+            alert("Submitted");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<form onsubmit="return validateForm()">
+<table border="2" align="center" cellspacing="0" cellpadding="8" width="500">
+
+    <tr>
+        <th colspan="3">PERSON PROFILE</th>
+    </tr>
+
+    <tr>
+        <td>Name</td>
+        <td><input type="text" id="name"></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Email</td>
+        <td><input type="text" id="email"></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Gender</td>
+        <td>
+            <input type="radio" name="g"> Male
+            <input type="radio" name="g"> Female
+            <input type="radio" name="g"> Other
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Date of Birth</td>
+        <td>
+            <input type="text" id="dd" size="2"> /
+            <input type="text" id="mm" size="2"> /
+            <input type="text" id="yyyy" size="4"> (dd/mm/yyyy)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Blood Group</td>
+        <td>
+            <select id="blood">
+                <option value="">Select</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>O+</option>
+            </select>
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Degree</td>
+        <td>
+            <input type="checkbox" name="degree"> SSC
+            <input type="checkbox" name="degree"> HSC
+            <input type="checkbox" name="degree"> BSc.
+            <input type="checkbox" name="degree"> MSc.
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Photo</td>
+        <td><input type="file" id="photo"></td>
+        <td></td>
+    </tr>
+
+    <tr height="40">
+        <td colspan="3"></td>
+    </tr>
+
+    <tr>
+        <td colspan="3" align="right">
+            <input type="submit" value="Submit">
+            <input type="reset"  value="Reset">
+        </td>
+    </tr>
+
+</table>
+</form>
+
+</body>
+</html>
