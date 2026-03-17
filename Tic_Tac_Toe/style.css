@@ -1,0 +1,28 @@
+body{
+    text-align:center;
+    font-family:Arial;
+}
+
+.board{
+    width:210px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:70px 70px 70px;
+}
+
+#status{
+ font-size: medium;
+ background-color: aqua;
+ 
+}
+
+.cell{
+    width:70px;
+    height:70px;
+    border:1px solid black;
+    font-size:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
